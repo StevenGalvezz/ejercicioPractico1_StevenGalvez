@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Biblioteca - El Rincón Literario</title>
+    <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
+    <link th:href="@{/css/custom.css}" rel="stylesheet"/>
+</head>
+<body>
+    
+<header th:fragment="header">
+    <nav class="navbar navbar-expand-lg" style="background-color:#0b3d91;">
+        <div class="container">
+            <a class="navbar-brand text-white" th:href="@{/}"><i class="fa-solid fa-book"></i> El Rincón Literario</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"
+                    aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="colav-item"><a class="nav-link text-white" th:href="@{/}">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" th:href="@{/libro/listado}">Libros</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" th:href="@{/categoria/listado}">Categorías</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" th:href="@{/queja/nuevo}">Sugerencias</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="py-3 text-white" style="background-color:#1d6fa5;">
+        <div class="container">
+            <h1>El Rincón Literario</h1>
+            <p>Tu biblioteca digital - descubre, lee y participa</p>
+        </div>
+    </section>
+</header>
+
+<!-- Toasts fragment -->
+<section th:fragment="toast">
+    <div class="position-fixed top-0 end-0 p-3" style="z-index: 1080;">
+        <div th:if="${error}" class="toast align-items-center text-white bg-danger border-0 show" role="alert">
+            <div class="d-flex">
+                <div class="toast-body">
+                    <strong th:text="${error}">Error</strong>
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+            </div>
+        </div>
+        <div th:if="${todoOk}" class="toast align-items-center text-white bg-success border-0 show" role="status">
+            <div class="d-flex">
+                <div class="toast-body">
+                    <strong th:text="${todoOk}">OK</strong>
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<footer th:fragment="footer" class="mt-5" style="background-color:#7b1437; color:white;">
+    <div class="container p-3">
+        <div class="row">
+            <div class="col-md-8">
+                <h5>El Rincón Literario</h5>
+                <p>Promoviendo la lectura y el acceso al conocimiento.</p>
+            </div>
+            <div class="col-md-4 text-end">
+                <small>&copy; 2025 El Rincón Literario</small>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/rutinas.js}"></script>
+</body>
+</html>

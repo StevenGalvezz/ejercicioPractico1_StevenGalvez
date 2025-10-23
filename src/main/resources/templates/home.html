@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{general/plantilla :: head}"></head>
+<body>
+<div th:replace="~{general/plantilla :: header}"></div>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8">
+            <h2>Bienvenido a El Rincón Literario</h2>
+            <p>Una biblioteca virtual con títulos seleccionados para lectores curiosos.</p>
+
+            <h3>Nuevo libro destacado</h3>
+            <div th:if="${destacado != null}" class="card mb-3">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img th:if="${destacado.rutaImagen != null}" th:src="${destacado.rutaImagen}" class="img-fluid rounded-start" alt="portada"/>
+                        <div th:if="${destacado.rutaImagen == null}" style="height:200px; background:#eee;"></div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 th:text="${destacado.titulo}">Título</h5>
+                            <p><strong>Autor:</strong> <span th:text="${destacado.autor}">Autor</span></p>
+                            <p th:text="${destacado.descripcion}">Descripción</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Lectura recomendada (video)</h3>
+            <div class="ratio ratio-16x9 mb-4">
+                <iframe src="https://www.youtube.com/embed/Ke1c7xY9eMA" title="Lectura" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <h4>Contacto</h4>
+            <p>¿Tienes sugerencias? <a th:href="@{/queja/nuevo}">Envíalas aquí</a>.</p>
+        </div>
+    </div>
+</div>
+
+<div th:replace="~{general/plantilla :: footer}"></div>
+</body>
+</html>
